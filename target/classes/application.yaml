@@ -1,0 +1,39 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: dianping
+# 数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/dianping?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: Tracy_ray
+
+  #消息队列
+  rabbitmq:
+    host: 47.115.201.202
+    port: 5672
+    username: admin
+    password: 123
+    virtual-host: /
+  # redis配置
+  redis:
+    host: localhost
+    port: 6379
+    password: Tracy_ray
+    lettuce:
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 1
+        time-between-eviction-runs: 10s
+# 设置json非空
+  jackson:
+    default-property-inclusion: non_null
+# 别名扫描包
+mybatis-plus:
+  type-aliases-package: com.dianping.entiry
+logging:
+  level:
+    com.dianping: debug
